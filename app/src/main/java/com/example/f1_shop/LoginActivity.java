@@ -93,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
         mUsers = mUserDAO.getUserByUsername(mUsername);
 
         if(mUsers == null){
-            Toast.makeText(this, "no user" + mUsername + " found", Toast.LENGTH_SHORT)
+            Toast.makeText(this, "a user " + mUsername + " does not exist", Toast.LENGTH_SHORT)
                     .show();
             return false;
         }

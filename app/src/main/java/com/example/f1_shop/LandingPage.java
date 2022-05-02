@@ -1,14 +1,17 @@
 package com.example.f1_shop;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.f1_shop.DB.ShopDatabase;
 import com.example.f1_shop.DB.UserDAO;
@@ -42,10 +45,42 @@ public class LandingPage extends AppCompatActivity {
 
         getDatabase();
         wireUpDisplay();
-
         showAdminButton();
+        logout();
 
 
+    }
+
+    private void logout(){
+        mLogoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                confirmLogout();
+            }
+        });
+    }
+
+    private void confirmLogout(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure you want to logout?");
+
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(LandingPage.this,"Confirmed", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(LandingPage.this,"Cancel", Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.create();
+        builder.show();
     }
 
     private void showAdminButton(){
