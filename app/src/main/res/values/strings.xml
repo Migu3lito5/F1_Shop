@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">F1_Shop</string>
+    <string name="login">Login</string>
+    <string name="create">Create</string>
+    <string name="welcome_if_you_have_an_account_tap_on_login_else_tap_on_create">Welcome! If you have an account tap on Login, else tap on Create</string>
+    <string name="enter_login_info">Enter Login Info</string>
+    <string name="password">Password</string>
+    <string name="button">Button</string>
+    <string name="username">Username</string>
+    <string name="enter_info_to_create_account">Enter Info to Create Account</string>
+    <string name="register">register</string>
+    <string name="name">name</string>
+    <string name="logout">Logout</string>
+    <string name="admin">Admin</string>
+</resources>
