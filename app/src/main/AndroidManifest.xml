@@ -10,16 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.F1_Shop">
         <activity
-            android:name=".CreateActivity"
+            android:name=".FundsActivity"
             android:exported="false" />
         <activity
-            android:name=".LandingPage"
+            android:name=".Screens.CreateActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".Screens.LandingPage"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Screens.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Screens.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

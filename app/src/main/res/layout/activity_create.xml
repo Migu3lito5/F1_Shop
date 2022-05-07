@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateActivity"
+    tools:context=".Screens.CreateActivity"
     android:background="#ECDBDB">
 
     <ImageView
@@ -50,7 +50,7 @@
         app:layout_constraintVertical_bias="0.542" />
 
     <Button
-        android:id="@+id/createButtonToLandPage"
+        android:id="@+id/registerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#BA1414"

@@ -1,81 +1,89 @@
-package com.example.f1_shop;
+package com.example.f1_shop.Screens;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.f1_shop.DB.ShopDatabase;
 import com.example.f1_shop.DB.UserDAO;
 import com.example.f1_shop.DB.Users;
+import com.example.f1_shop.FundsActivity;
+import com.example.f1_shop.R;
 import com.example.f1_shop.databinding.ActivityCreateBinding;
 
 public class CreateActivity extends AppCompatActivity {
 
-    ActivityCreateBinding mActivityCreateBinding;
+    private ActivityCreateBinding mActivityCreateBinding;
 
-    TextView mCreateCommand;
+    private TextView mCreateCommand;
 
-    EditText mInputName, mInputUsername, mInputPassword;
-    Button mCreateAccount;
+    private EditText mInputName, mInputUsername, mInputPassword;
+    private Button mCreateAccount;
 
-    String nameEntered, userNameEntered, passwordEntered;
-    Users aUser;
+    private UserDAO mUserDAO;
+    private String nameEntered, userNameEntered, passwordEntered;
+    private Users mUsers;
 
-    UserDAO mUserDAO;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create);
-
-        wireUpDisplay();
         getDataBase();
-        getValuesFromScreen();
-
-        if(!UserExist()){
-
-        } else {
-            createAccount();
-        }
+        wireUpDisplay();
 
 
+        //maybe add one button that validates and another that takes to landing page
+        mCreateAccount.setOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View view) {
+                getValuesFromScreen();
+                if(UserExist()){
+                    createAccount();
+
+                }
+            }
+        });
 
     }
 
     private void createAccount() {
-        //TODO: Finish CreateAccount
-        // Insert all the data given by user into the database
-        // Make a toast confirming account created
-        // addFunds() method asks user to add funds
-        // take users to Landing activity
+
+        mUsers = new Users(userNameEntered, passwordEntered, nameEntered, 0.0, false);
+        mUserDAO.registerUser(mUsers);
+
+        Intent intent = FundsActivity.IntentFactory(getApplicationContext(), mUsers.getId());
 
 
     }
 
     private boolean UserExist() {
-        //TODO : Finish UserExists()
-        aUser = mUserDAO.getUserByUsername(userNameEntered);
 
-        if(aUser.getUsername().equals(userNameEntered)){
-            //Toast saying username already exists
+        mUsers = mUserDAO.getUserByUsername(userNameEntered);
+
+        if(mUsers != null){
+            Toast.makeText(CreateActivity.this, "Username already exists!", Toast.LENGTH_SHORT)
+                    .show();
             return false;
-        } else {
-            //Toast saying info is ok
-            return true;
         }
 
-
+        mUsers = new Users(userNameEntered, passwordEntered, nameEntered, 0.0, false);
+        return true;
     }
 
     private void getValuesFromScreen() {
         nameEntered = mInputName.getText().toString();
-        userNameEntered = mInputPassword.getText().toString();
+        userNameEntered = mInputUsername.getText().toString();
         passwordEntered = mInputPassword.getText().toString();
     }
 
@@ -94,14 +102,8 @@ public class CreateActivity extends AppCompatActivity {
         mInputUsername = mActivityCreateBinding.createUsername;
         mInputName = mActivityCreateBinding.createNameForUser;
         mInputPassword = mActivityCreateBinding.createPassword;
-        mCreateAccount = mActivityCreateBinding.createButtonToLandPage;
+        mCreateAccount = mActivityCreateBinding.registerButton;
 
-
-
-    }
-
-    private void addFunds(){
-        //TODO: Finish addFunds()
     }
 
 

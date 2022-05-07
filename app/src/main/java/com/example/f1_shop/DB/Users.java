@@ -19,13 +19,17 @@ public class Users {
     @ColumnInfo(name = "mName")
     private String mName;
 
+    @ColumnInfo(name = "mFunds")
+    private double mFunds;
+
     @ColumnInfo(name = "mIsAdmin")
     private boolean mIsAdmin;
 
-    public Users(String username, String password, String name, boolean isAdmin) {
+    public Users(String username, String password, String name, double funds, boolean isAdmin) {
         mUsername = username;
         mPassword = password;
         mName = name;
+        mFunds = funds;
         mIsAdmin = isAdmin;
     }
 
@@ -67,5 +71,13 @@ public class Users {
 
     public void setAdmin(boolean admin) {
         mIsAdmin = admin;
+    }
+
+    public double getFunds() {
+        return mFunds;
+    }
+
+    public void setFunds(double funds) {
+        mFunds = funds;
     }
 }

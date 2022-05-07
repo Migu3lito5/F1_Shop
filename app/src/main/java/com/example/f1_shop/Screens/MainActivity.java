@@ -1,13 +1,10 @@
-package com.example.f1_shop;
+package com.example.f1_shop.Screens;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.renderscript.ScriptGroup;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -16,6 +13,7 @@ import android.widget.TextView;
 import com.example.f1_shop.DB.ShopDatabase;
 import com.example.f1_shop.DB.UserDAO;
 import com.example.f1_shop.DB.Users;
+import com.example.f1_shop.R;
 import com.example.f1_shop.databinding.ActivityMainBinding;
 
 import java.util.List;
@@ -87,9 +85,9 @@ public class MainActivity extends AppCompatActivity {
         List<Users> usersList = mUserDAO.getAllUsers();
 
         if(usersList.size() <= 0){
-            Users adminUser = new Users("admin2","admin2", "Admin2", true);
+            Users adminUser = new Users("admin2","admin2", "Admin2", 1000.0, true);
 
-            Users testUser = new Users("testuser123", "test1234", "Bob" , false);
+            Users testUser = new Users("testuser123", "test1234", "Bob" , 0.0, false);
 
 
             mUserDAO.registerUser(adminUser);

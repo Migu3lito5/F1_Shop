@@ -1,4 +1,4 @@
-package com.example.f1_shop;
+package com.example.f1_shop.Screens;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
@@ -14,8 +14,9 @@ import android.widget.Toast;
 import com.example.f1_shop.DB.ShopDatabase;
 import com.example.f1_shop.DB.UserDAO;
 import com.example.f1_shop.DB.Users;
+import com.example.f1_shop.R;
 import com.example.f1_shop.databinding.ActivityLoginBinding;
-import com.example.f1_shop.databinding.ActivityMainBinding;
+
 
 public class LoginActivity extends AppCompatActivity {
 
