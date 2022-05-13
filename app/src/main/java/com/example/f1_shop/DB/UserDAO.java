@@ -17,6 +17,7 @@ public interface UserDAO {
     @Update
     void updateUser(Users... users);
 
+
     @Delete
     void deleteUser(Users users);
 
@@ -29,5 +30,7 @@ public interface UserDAO {
     @Query("SELECT * FROM " + ShopDatabase.USER_TABLE)
     List<Users> getAllUsers();
 
+    @Query("UPDATE " + ShopDatabase.USER_TABLE + " SET mFunds = mFunds +:funds" + " WHERE mId = :userID")
+    void updateFundsForUser(Double funds, Integer userID);
 
 }

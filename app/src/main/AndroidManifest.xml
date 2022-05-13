@@ -13,7 +13,7 @@
             android:name=".Admin.AdminActivity"
             android:exported="false" />
         <activity
-            android:name=".FundsActivity"
+            android:name=".Screens.FundsActivity"
             android:exported="false" />
         <activity
             android:name=".Screens.CreateActivity"

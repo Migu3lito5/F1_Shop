@@ -16,7 +16,6 @@ import android.widget.Toast;
 import com.example.f1_shop.DB.ShopDatabase;
 import com.example.f1_shop.DB.UserDAO;
 import com.example.f1_shop.DB.Users;
-import com.example.f1_shop.FundsActivity;
 import com.example.f1_shop.R;
 import com.example.f1_shop.databinding.ActivityCreateBinding;
 
