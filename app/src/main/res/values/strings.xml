@@ -15,4 +15,9 @@
     <string name="provide_amount_and_password">Provide amount and password</string>
     <string name="amount">amount</string>
     <string name="confirm">Confirm</string>
+    <string name="welcome_admin">Welcome Admin</string>
+    <string name="edit_items">Edit Items</string>
+    <string name="edit_teams">Edit Teams</string>
+    <string name="edit_users">Edit Users</string>
+    <string name="Next" />
 </resources>

@@ -1,8 +1,10 @@
 package com.example.f1_shop.Screens;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -25,7 +27,7 @@ public class CreateActivity extends AppCompatActivity {
     private TextView mCreateCommand;
 
     private EditText mInputName, mInputUsername, mInputPassword;
-    private Button mCreateAccount;
+    private Button mCreateAccount, mToLandPage;
 
     private UserDAO mUserDAO;
     private String nameEntered, userNameEntered, passwordEntered;
@@ -51,19 +53,28 @@ public class CreateActivity extends AppCompatActivity {
                 if(UserExist()){
                     createAccount();
 
+
                 }
             }
+
+        });
+
+        mToLandPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                addFunds();
+            }
+
         });
 
     }
 
     private void createAccount() {
-
         mUsers = new Users(userNameEntered, passwordEntered, nameEntered, 0.0, false);
         mUserDAO.registerUser(mUsers);
-
-        Intent intent = FundsActivity.IntentFactory(getApplicationContext(), mUsers.getId());
-
+        Toast.makeText(getApplicationContext(), "Account Created",Toast.LENGTH_SHORT).show();
+        mToLandPage.setVisibility(View.VISIBLE);
 
     }
 
@@ -77,7 +88,6 @@ public class CreateActivity extends AppCompatActivity {
             return false;
         }
 
-        mUsers = new Users(userNameEntered, passwordEntered, nameEntered, 0.0, false);
         return true;
     }
 
@@ -88,7 +98,7 @@ public class CreateActivity extends AppCompatActivity {
     }
 
     private void getDataBase() {
-        mUserDAO = Room.databaseBuilder(this, ShopDatabase.class, ShopDatabase.dbName)
+        mUserDAO = Room.databaseBuilder(getApplicationContext(), ShopDatabase.class, ShopDatabase.dbName)
                 .allowMainThreadQueries()
                 .build()
                 .UserDAO();
@@ -103,8 +113,31 @@ public class CreateActivity extends AppCompatActivity {
         mInputName = mActivityCreateBinding.createNameForUser;
         mInputPassword = mActivityCreateBinding.createPassword;
         mCreateAccount = mActivityCreateBinding.registerButton;
+        mToLandPage = mActivityCreateBinding.toLandPage;
 
     }
 
+    private void addFunds(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(CreateActivity.this);
+        builder.setMessage("Do you want to add funds?");
+
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Intent intent = FundsActivity.IntentFactory(getApplicationContext(), mUserDAO.getUserByUsername(userNameEntered).getId());
+                startActivity(intent);
+            }
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Intent intent = LandingPage.IntentFactory(getApplicationContext(), mUserDAO.getUserByUsername(userNameEntered).getId());
+                startActivity(intent);
+            }
+        });
+        builder.create();
+        builder.show();
+    }
 
 }

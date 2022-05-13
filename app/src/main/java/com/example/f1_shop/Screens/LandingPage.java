@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.f1_shop.Admin.AdminActivity;
 import com.example.f1_shop.DB.ShopDatabase;
 import com.example.f1_shop.DB.UserDAO;
 import com.example.f1_shop.R;
@@ -40,9 +41,18 @@ public class LandingPage extends AppCompatActivity {
         getDatabase();
         wireUpDisplay();
         showAdminButton();
+
+
+        mAdminButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = AdminActivity.IntentFactory(getApplicationContext(),mUserId);
+                startActivity(intent);
+            }
+        });
+
+
         logout();
-
-
     }
 
     private void logout(){
@@ -84,6 +94,8 @@ public class LandingPage extends AppCompatActivity {
         if(mUserDAO.getUserById(mUserId).isAdmin()){
             mAdminButton.setVisibility(View.VISIBLE);
         }
+
+
 
     }
 

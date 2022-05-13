@@ -31,7 +31,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/F1LogoLogin"
-        app:layout_constraintVertical_bias="0.328" />
+        app:layout_constraintVertical_bias="0.219" />
 
     <EditText
         android:id="@+id/createUsername"
@@ -44,10 +44,10 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.542" />
+        app:layout_constraintVertical_bias="0.609" />
 
     <Button
         android:id="@+id/registerButton"
@@ -57,10 +57,10 @@
         android:text="@string/register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.781" />
+        app:layout_constraintVertical_bias="0.816" />
 
     <EditText
         android:id="@+id/createPassword"
@@ -73,9 +73,10 @@
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.644" />
+        app:layout_constraintVertical_bias="0.71" />
 
     <EditText
         android:id="@+id/createNameForUser"
@@ -92,4 +93,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createCommand"
         app:layout_constraintVertical_bias="0.819" />
+
+    <Button
+        android:id="@+id/toLandPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginEnd="151dp"
+        android:backgroundTint="#BA1414"
+        android:text="Welcome"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/F1LogoLogin"
+        app:layout_constraintVertical_bias="0.377"
+        tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>
