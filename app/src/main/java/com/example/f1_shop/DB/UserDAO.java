@@ -33,4 +33,5 @@ public interface UserDAO {
     @Query("UPDATE " + ShopDatabase.USER_TABLE + " SET mFunds = mFunds +:funds" + " WHERE mId = :userID")
     void updateFundsForUser(Double funds, Integer userID);
 
+
 }

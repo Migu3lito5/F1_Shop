@@ -12,9 +12,9 @@
         android:layout_width="414dp"
         android:layout_height="108dp"
         android:background="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/welcomeAdmin"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
@@ -24,8 +24,6 @@
         android:id="@+id/welcomeAdmin"
         android:layout_width="125dp"
         android:layout_height="37dp"
-        android:layout_marginStart="144dp"
-        android:layout_marginEnd="143dp"
         android:background="#D5CDCD"
         android:backgroundTint="#DCD6CD"
         android:gravity="center"
@@ -33,60 +31,47 @@
         android:textColor="#EC3F3F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.308" />
+        app:layout_constraintTop_toBottomOf="@+id/F1Logo"
+        app:layout_constraintVertical_bias="0.117" />
 
     <Button
         android:id="@+id/editItems"
         android:layout_width="125dp"
         android:layout_height="61dp"
-        android:layout_marginStart="144dp"
-        android:layout_marginTop="344dp"
-        android:layout_marginEnd="143dp"
         android:backgroundTint="#DCD6CD"
         android:text="@string/edit_items"
         android:textColor="#EC3F3F"
-        app:layout_constraintBottom_toTopOf="@+id/editUsers"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/editTeams"
         android:layout_width="125dp"
         android:layout_height="61dp"
-        android:layout_marginStart="144dp"
-        android:layout_marginEnd="143dp"
-        android:layout_marginBottom="141dp"
         android:backgroundTint="#DCD6CD"
         android:text="@string/edit_teams"
         android:textColor="#EC3F3F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editUsers"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.753" />
 
     <Button
         android:id="@+id/editUsers"
         android:layout_width="125dp"
         android:layout_height="61dp"
-        android:layout_marginStart="144dp"
-        android:layout_marginEnd="143dp"
         android:backgroundTint="#DCD6CD"
         android:text="@string/edit_users"
         android:textColor="#EC3F3F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.652" />
+        app:layout_constraintVertical_bias="0.637" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

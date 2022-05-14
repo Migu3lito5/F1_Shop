@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.F1_Shop">
         <activity
+            android:name=".Admin.TabsContent.TestActivity"
+            android:exported="false" />
+        <activity
             android:name=".Admin.AdminActivity"
             android:exported="false" />
         <activity

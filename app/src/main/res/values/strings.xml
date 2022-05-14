@@ -20,4 +20,6 @@
     <string name="edit_teams">Edit Teams</string>
     <string name="edit_users">Edit Users</string>
     <string name="Next" />
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -6,6 +6,8 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import java.util.List;
+
 @Dao
 public interface ItemDAO {
 
@@ -17,6 +19,9 @@ public interface ItemDAO {
 
     @Delete
     void deleteItem(Items items);
+
+    @Query("SELECT * FROM " + ShopDatabase.ITEM_TABLE)
+    List<Items> getAllItems();
 
 
 

@@ -3,6 +3,7 @@ package com.example.f1_shop.Screens;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.f1_shop.Admin.TabsContent.TestActivity;
+import com.example.f1_shop.DB.ItemDAO;
+import com.example.f1_shop.DB.Items;
 import com.example.f1_shop.DB.ShopDatabase;
 import com.example.f1_shop.DB.UserDAO;
 import com.example.f1_shop.DB.Users;
@@ -26,10 +30,13 @@ public class MainActivity extends AppCompatActivity {
 
     private Button mCreateButton;
     private Button mLoginButton;
+    private Button testButton;
     private TextView mWelcomeMessage;
     private ImageView mF1Logo;
 
     private UserDAO mUserDAO;
+    private ItemDAO mItemDAO;
+
 
     private int mUserId = -1;
 
@@ -45,9 +52,11 @@ public class MainActivity extends AppCompatActivity {
         mWelcomeMessage = mActivityMainBinding.introMessage;
         mLoginButton = mActivityMainBinding.loginButton;
         mCreateButton = mActivityMainBinding.createButton;
+        testButton = mActivityMainBinding.testButton;
 
         getDataBase();
         checkForUser();
+        checkForItems();
 
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +75,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        testButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = TestActivity.IntentFactory(getApplicationContext());
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void getDataBase() {
@@ -73,6 +90,12 @@ public class MainActivity extends AppCompatActivity {
                 .allowMainThreadQueries()
                 .build()
                 .UserDAO();
+
+        mItemDAO = Room.databaseBuilder(this, ShopDatabase.class, ShopDatabase.dbName)
+                .allowMainThreadQueries()
+                .build()
+                .ItemDAO();
+
     }
 
     private void checkForUser() {
@@ -89,13 +112,20 @@ public class MainActivity extends AppCompatActivity {
 
             Users testUser = new Users("testuser123", "test1234", "Bob" , 0.0, false);
 
-
             mUserDAO.registerUser(adminUser);
             mUserDAO.registerUser(testUser);
 
-
         }
 
+    }
+
+    private void checkForItems(){
+        List<Items> itemsList = mItemDAO.getAllItems();
+
+        if(itemsList.size() <= 0){
+            Items items = new Items("T-Shirt", "Mclaren", 5, 35.0, true);
+            mItemDAO.createNewItem(items);
+        }
     }
 
 }

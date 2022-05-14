@@ -10,9 +10,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.f1_shop.Admin.AdminActivity;
+import com.example.f1_shop.Admin.TabsContent.TestActivity;
 import com.example.f1_shop.DB.ShopDatabase;
 import com.example.f1_shop.DB.UserDAO;
 import com.example.f1_shop.R;
@@ -25,6 +27,7 @@ public class LandingPage extends AppCompatActivity {
 
     private ActivityLandingPageBinding mLandingPageBinding;
 
+    private TextView mDisplayName;
     private Button mAdminButton;
     private Button mLogoutButton;
 
@@ -41,18 +44,25 @@ public class LandingPage extends AppCompatActivity {
         getDatabase();
         wireUpDisplay();
         showAdminButton();
+        displayUsername();
 
 
         mAdminButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = AdminActivity.IntentFactory(getApplicationContext(),mUserId);
+                Intent intent = TestActivity.IntentFactory(getApplicationContext(),mUserId);
                 startActivity(intent);
             }
         });
 
 
         logout();
+    }
+
+    private void displayUsername() {
+
+        mDisplayName.setText("Welcome " + mUserDAO.getUserById(mUserId).getName().toString());
+
     }
 
     private void logout(){
@@ -114,6 +124,8 @@ public class LandingPage extends AppCompatActivity {
 
         mAdminButton = mLandingPageBinding.adminButton;
         mLogoutButton = mLandingPageBinding.LogoutButton;
+        mDisplayName = mLandingPageBinding.displayName;
+
     }
 
 
@@ -123,5 +135,10 @@ public class LandingPage extends AppCompatActivity {
         return intent;
     }
 
+    public static Intent IntentFactoryFromAdminPage(Context context, int UserId){
+        Intent intent = new Intent(context, LandingPage.class);
+        intent.putExtra(USER_ID_KEY, UserId);
+        return intent;
+    }
 
 }

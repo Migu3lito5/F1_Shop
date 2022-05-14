@@ -10,6 +10,7 @@ public class Users {
     @PrimaryKey(autoGenerate = true)
     private Integer mId;
 
+    // remember to add reference
     @ColumnInfo(name = "mUsername")
     private String mUsername;
 

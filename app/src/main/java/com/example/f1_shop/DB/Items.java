@@ -20,12 +20,19 @@ public class Items {
     private Integer mQty;
 
     @ColumnInfo(name = "mPrice")
-    private Double mPrice;
+    private double mPrice;
 
-    @ColumnInfo(name = "OnDisplay")
-    private boolean OnDisplay;
+    @ColumnInfo(name = "mOnDisplay")
+    private boolean mOnDisplay;
 
 
+    public Items(String type, String team, Integer qty, double price, boolean onDisplay) {
+        mType = type;
+        mTeam = team;
+        mQty = qty;
+        mPrice = price;
+        mOnDisplay = onDisplay;
+    }
 
     public Integer getId() {
         return mId;
@@ -59,19 +66,20 @@ public class Items {
         mQty = qty;
     }
 
-    public Double getPrice() {
+    public double getPrice() {
         return mPrice;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(double price) {
         mPrice = price;
     }
 
     public boolean isOnDisplay() {
-        return OnDisplay;
+        return mOnDisplay;
     }
 
     public void setOnDisplay(boolean onDisplay) {
-        OnDisplay = onDisplay;
+        mOnDisplay = onDisplay;
     }
 }
+

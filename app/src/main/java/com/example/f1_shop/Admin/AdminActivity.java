@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.example.f1_shop.R;
 import com.example.f1_shop.databinding.ActivityAdminBinding;
 
-
+// old design, testActivity is the new design that went into final iteration
 public class AdminActivity extends AppCompatActivity {
 
     private static final String USER_ID_KEY = "com.example.f1_shop.Admin";

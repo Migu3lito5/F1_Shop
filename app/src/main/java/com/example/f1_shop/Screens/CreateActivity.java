@@ -49,7 +49,7 @@ public class CreateActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 getValuesFromScreen();
-                if(UserExist()){
+                if(UserNotExist()){
                     createAccount();
 
 
@@ -77,7 +77,7 @@ public class CreateActivity extends AppCompatActivity {
 
     }
 
-    private boolean UserExist() {
+    private boolean UserNotExist() {
 
         mUsers = mUserDAO.getUserByUsername(userNameEntered);
 
