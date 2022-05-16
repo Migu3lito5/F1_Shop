@@ -130,7 +130,7 @@ public class LandingPage extends AppCompatActivity {
         } else {
 
             for(int i = 0; i < AllEntries.size(); i++){
-                if(AllEntries.get(i).getUserId().equals(mUserId) && AllEntries.get(i).getItemId().equals(mItemId) && !AllEntries.get(i).isBought()){
+                if(AllEntries.get(i).getUserId().equals(mUserId) && !AllEntries.get(i).isBought()){
                     entriesNeeded.add(AllEntries.get(i));
                 }
             }
@@ -160,8 +160,9 @@ public class LandingPage extends AppCompatActivity {
             return sb;
         } else {
 
+            // Fixed Bug
             for(int i = 0; i < AllEntries.size(); i++){
-                if(AllEntries.get(i).getUserId().equals(mUserId) && AllEntries.get(i).getItemId().equals(mItemId) && AllEntries.get(i).isBought()){
+                if(AllEntries.get(i).getUserId().equals(mUserId) && AllEntries.get(i).isBought()){
                     entriesNeeded.add(AllEntries.get(i));
                 }
             }
