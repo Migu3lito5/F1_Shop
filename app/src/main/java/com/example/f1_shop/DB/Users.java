@@ -4,6 +4,14 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+/*
+    references:
+        https://medium.com/@barryalan2633/what-does-columninfo-do-ad30874d4daa
+        https://developer.android.com/reference/androidx/room/ColumnInfo
+        https://www.w3schools.com/sql/sql_update.asp -- used this website to re-freshen my memory of SQL
+        GymLog video and assignment was also used to build the Database and all its components
+
+ */
 @Entity(tableName = ShopDatabase.USER_TABLE)
 public class Users {
 

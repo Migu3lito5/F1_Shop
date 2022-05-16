@@ -4,6 +4,12 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+/*
+    references:
+        For references look at Users.class
+
+ */
+
 @Entity(tableName = ShopDatabase.ITEM_TABLE)
 public class Items {
     // id | type | team | qty | price | onDisplay |
@@ -33,6 +39,8 @@ public class Items {
         mPrice = price;
         mOnDisplay = onDisplay;
     }
+
+
 
     public Integer getId() {
         return mId;

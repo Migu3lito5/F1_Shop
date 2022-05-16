@@ -5,6 +5,13 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+/*
+
+    For reference page look at TestActivity and UsersFragment
+
+
+ */
+
 public class PageAdapter extends FragmentPagerAdapter {
 
     private int numOfTabs;

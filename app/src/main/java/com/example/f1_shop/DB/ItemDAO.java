@@ -8,6 +8,11 @@ import androidx.room.Update;
 
 import java.util.List;
 
+/*
+    references:
+        For references look at UsersDAO
+
+ */
 @Dao
 public interface ItemDAO {
 
@@ -20,12 +25,21 @@ public interface ItemDAO {
     @Delete
     void deleteItem(Items items);
 
+    @Query("DELETE FROM " + ShopDatabase.ITEM_TABLE + " WHERE mTeam =:team")
+    int deleteTeam(String team);
+
     @Query("SELECT * FROM " + ShopDatabase.ITEM_TABLE)
     List<Items> getAllItems();
 
+    @Query("SELECT * FROM " + ShopDatabase.ITEM_TABLE + " WHERE mType =:type AND mTeam =:team")
+    Items getItemFromTypeAndTeam(String type, String team);
 
 
+    @Query("SELECT * FROM " + ShopDatabase.ITEM_TABLE + " WHERE mId =:itemID")
+    Items getItemFromId(Integer itemID);
 
+    @Query("UPDATE " + ShopDatabase.ITEM_TABLE + "  SET mQty = mQty - 1 " + " WHERE mId =:itemID")
+    void updateQty(Integer itemID);
 
 
 

@@ -20,6 +20,16 @@ import com.example.f1_shop.databinding.ActivityTestBinding;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
+/* T
+    he classes ItemsFragments, TeamsFragments, UsersFragments, TestActivity, and PageAdapter
+    were referenced from https://www.youtube.com/watch?v=HHd-Fa3DCng
+
+
+
+ */
+
+
+
 public class TestActivity extends AppCompatActivity {
 
     private static final String USER_ID_KEY = "com.example.f1_shop.Admin.TabsContent";
@@ -37,8 +47,11 @@ public class TestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
+
+
         getDataBase();
         wireUpTabs();
+
 
 
 
@@ -61,6 +74,7 @@ public class TestActivity extends AppCompatActivity {
         TabItem userTab = findViewById(R.id.tabUsers);
         ViewPager viewPager = findViewById(R.id.viewPager);
 
+
         PageAdapter pageAdapter = new PageAdapter(getSupportFragmentManager(),
                 tabLayout.getTabCount());
 
@@ -82,8 +96,15 @@ public class TestActivity extends AppCompatActivity {
 
             }
         });
+
+
     }
 
+    private void getIntentFromLandPage(){
+        Intent intent = getIntent();
+        mUserId = intent.getIntExtra(USER_ID_KEY, -1);
+
+    }
     public static Intent IntentFactory( Context context){
         Intent intent = new Intent(context, TestActivity.class);
         return intent;

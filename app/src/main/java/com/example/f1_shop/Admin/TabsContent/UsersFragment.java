@@ -19,6 +19,11 @@ import com.example.f1_shop.R;
 import com.example.f1_shop.Screens.CreateActivity;
 
 
+//https://developer.android.com/reference/android/app/Fragment
+// https://www.youtube.com/watch?v=fIdhBr2ncXQ&t=172s helped in learning how to set up buttons in
+// a fragment and getting values from it
+
+
 public class UsersFragment extends Fragment {
 
     private EditText oldPassword, newPassword, oldUsername, newUsername, name, admininput;

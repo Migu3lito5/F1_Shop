@@ -22,6 +22,14 @@ import com.example.f1_shop.databinding.ActivityMainBinding;
 
 import java.util.List;
 
+/*
+   Reference
+        https://www.youtube.com/watch?v=9Ta4OwNtw-4&t=194s used this video to have a better understanding
+        of how login and register users worked.
+
+
+ */
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -30,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
 
     private Button mCreateButton;
     private Button mLoginButton;
-    private Button testButton;
     private TextView mWelcomeMessage;
     private ImageView mF1Logo;
 
@@ -52,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         mWelcomeMessage = mActivityMainBinding.introMessage;
         mLoginButton = mActivityMainBinding.loginButton;
         mCreateButton = mActivityMainBinding.createButton;
-        testButton = mActivityMainBinding.testButton;
+
 
         getDataBase();
         checkForUser();
@@ -75,13 +82,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        testButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = TestActivity.IntentFactory(getApplicationContext());
-                startActivity(intent);
-            }
-        });
 
     }
 
@@ -125,6 +125,10 @@ public class MainActivity extends AppCompatActivity {
         if(itemsList.size() <= 0){
             Items items = new Items("T-Shirt", "Mclaren", 5, 35.0, true);
             mItemDAO.createNewItem(items);
+           Items  items2 = new Items("T-Shirt", "RedBull", 5, 35.0, true);
+            mItemDAO.createNewItem(items2);
+
+
         }
     }
 

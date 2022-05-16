@@ -8,6 +8,17 @@ import androidx.room.Update;
 
 import java.util.List;
 
+/*
+    references:
+        https://medium.com/@barryalan2633/what-does-columninfo-do-ad30874d4daa
+        https://developer.android.com/reference/androidx/room/ColumnInfo
+        https://www.w3schools.com/sql/sql_update.asp -- used this website to re-freshen my memory of SQL
+        GymLog video and assignment was also used to build the Database and all its components
+        https://developer.android.com/reference/android/arch/persistence/room/Dao use this documentation to read more on the database worked
+
+ */
+
+
 @Dao
 public interface UserDAO {
 
@@ -33,5 +44,8 @@ public interface UserDAO {
     @Query("UPDATE " + ShopDatabase.USER_TABLE + " SET mFunds = mFunds +:funds" + " WHERE mId = :userID")
     void updateFundsForUser(Double funds, Integer userID);
 
+
+    @Query("UPDATE " + ShopDatabase.USER_TABLE + " SET mFunds = mFunds -:itemPrice WHERE mId =:userId")
+    void decreaseFunds(Double itemPrice, Integer userId);
 
 }
