@@ -1,4 +1,5 @@
 # F1_Shop
+(This program was built in Android Studio)
 
 An application where there can be two kind of users. One is an admin, which has some unique attributes that a normal
 user wont have access to. A normal user can create or log into his account, in which after he has the ability to interact with 
@@ -10,3 +11,5 @@ user can purchase or view.
 
 This application uses SQLlite in order to store users and items in the application database. Therefore this application can 
 be categorized as a CRUD application.
+
+
